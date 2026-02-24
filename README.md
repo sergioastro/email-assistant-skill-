@@ -1,74 +1,74 @@
 # Email Assistant Skill
 
-AI-скилл с правилами обработки входящей почты. Предназначен для ИИ-ассистента, который мониторит несколько почтовых ящиков и отправляет уведомления в Telegram.
+An AI skill with comprehensive email processing rules. Designed for an AI assistant that monitors multiple mailboxes and sends notifications to Telegram.
 
-## Что делает
+## What It Does
 
-- Классифицирует входящие письма по 7 категориям
-- Выполняет автоматические действия (архивация, перемещение, пометка)
-- Отправляет уведомления в Telegram с кратким содержанием и inline-кнопками
-- Генерирует черновики ответов
-- Обнаруживает фишинг и подозрительные письма
-- Извлекает дедлайны и сроки из писем
-- Напоминает о неотвеченных письмах
+- Classifies incoming emails into 7 categories
+- Performs automatic actions (archive, move, star)
+- Sends Telegram notifications with summaries and inline buttons
+- Generates draft replies
+- Detects phishing and suspicious emails
+- Extracts deadlines and due dates from emails
+- Reminds about unanswered messages
 
-## Категории писем
+## Email Categories
 
-| Категория | Действие |
+| Category | Action |
 |---|---|
-| **Важное** | Входящие + звёздочка |
-| **Финансы** | Входящие + лейбл "Финансы" |
-| **Invoice** | Папка "Invoice" |
-| **Уведомления сервисов** | Входящие (еженедельная чистка в архив) |
-| **Маркетинг** | Архив |
-| **Спам** | Удаление |
-| **Личное** | Входящие |
+| **Important** | Inbox + star |
+| **Finance** | Inbox + "Finance" label |
+| **Invoice** | "Invoice" folder |
+| **Service Notifications** | Inbox (weekly cleanup to archive) |
+| **Marketing** | Archive |
+| **Spam** | Delete |
+| **Personal** | Inbox |
 
-## Возможности
+## Features
 
-### Уведомления
-- Отдельные шаблоны для обычных, важных, подозрительных писем и счетов
-- Группировка цепочек — одно уведомление вместо нескольких
-- Дедупликация между почтовыми ящиками
-- Дневной дайджест со статистикой
+### Notifications
+- Separate templates for regular, important, suspicious emails, and invoices
+- Thread grouping — one notification instead of many
+- Deduplication across mailboxes
+- Daily digest with statistics
 
-### Умная обработка
-- Двойная категоризация (письмо может иметь 2 категории)
-- Определение необходимости ответа и сроков
-- Извлечение дедлайнов с обратным отсчётом
-- Обнаружение фишинга (домены, ссылки, вложения)
-- Идентификация счетов с извлечением суммы и реквизитов
-- Анализ содержания для ложных тредов (Re: не по теме)
+### Smart Processing
+- Dual categorization (an email can have 2 categories)
+- Reply necessity and urgency detection
+- Deadline extraction with countdown
+- Phishing detection (domains, links, attachments)
+- Invoice identification with amount and payment details extraction
+- Content analysis for false threads (off-topic Re: replies)
 
-### Черновики ответов
-- Автоматическая генерация на языке входящего письма + перевод на русский
-- Защита для деликатных ситуаций (скрыта кнопка "Отправить как есть")
+### Draft Replies
+- Auto-generated in the language of the incoming email + translation to Russian
+- Safety guard for sensitive situations (hides "Send as is" button)
 
-### Эскалация
-- 3 напоминания с нарастающей срочностью (4ч / 24ч / 48ч)
-- Внеочередные напоминания при горящих дедлайнах
-- Inline-кнопки: Ответить / Отложить / Игнорировать
+### Escalation
+- 3 reminders with increasing urgency (4h / 24h / 48h)
+- Emergency reminders for approaching deadlines
+- Inline buttons: Reply / Snooze / Dismiss
 
-### Безопасность
-- Маскировка конфиденциальных данных (пароли, токены, номера карт)
-- Предупреждения о подозрительных вложениях
-- Предупреждения о счетах от неизвестных отправителей
-- Защита от ошибочной отписки (фильтр для транзакционных писем)
+### Security
+- Masking of sensitive data (passwords, tokens, card numbers)
+- Suspicious attachment warnings
+- Unknown sender warnings for invoices
+- Unsubscribe protection (filters for transactional emails)
 
-### Взаимодействие через Telegram
-- Inline-кнопки на каждом уведомлении
-- Поиск по почте текстовым запросом
-- Исправление ошибок классификации (кнопка + текстовая команда)
-- Авто-отписка от частых рассылок
-- Обучение на ошибках пользователя
+### Telegram Interaction
+- Inline buttons on every notification
+- Email search via text queries
+- Classification error correction (button + text command)
+- Auto-unsubscribe from frequent newsletters
+- Learning from user corrections
 
-## Граничные случаи
+## Edge Cases
 
-Скилл покрывает: письма без темы, флуд (20+ писем/час), пересланные письма, приглашения на встречу, bounce/недоставка, письма-картинки, автоответы (OOO), уже прочитанные письма, CC vs To, иностранные языки, метки URGENT от неизвестных.
+Covered: empty subject lines, email floods (20+ emails/hour), forwarded emails, calendar invites, bounce/delivery failures, image-only emails, auto-replies (OOO), already-read emails, CC vs To, foreign languages, URGENT labels from unknown senders.
 
-## Использование
+## Usage
 
-Файл `SKILL.md` содержит полный набор правил. Подключите его как скилл к вашему ИИ-ассистенту (Claude, GPT или другому), который обрабатывает входящую почту.
+The `SKILL.md` file contains the full set of rules. Connect it as a skill to your AI assistant (Claude, GPT, or other) that processes incoming email.
 
 ### Claude Code
 ```
@@ -76,4 +76,4 @@ AI-скилл с правилами обработки входящей почт
 ```
 
 ### Claude.ai
-Загрузите `SKILL.md` через настройки скиллов.
+Upload `SKILL.md` via the skills settings.
