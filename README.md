@@ -5,12 +5,13 @@ An AI skill with comprehensive email processing rules. Designed for an AI assist
 ## What It Does
 
 - Classifies incoming emails into 7 categories
-- Performs automatic actions (archive, move, star)
+- Performs automatic actions (archive, move, star, label)
 - Sends Telegram notifications with summaries and inline buttons
 - Generates draft replies
 - Detects phishing and suspicious emails
 - Extracts deadlines and due dates from emails
 - Reminds about unanswered messages
+- **Never deletes any emails** — all emails are moved (archive, "Spam" folder, etc.)
 
 ## Email Categories
 
@@ -21,13 +22,13 @@ An AI skill with comprehensive email processing rules. Designed for an AI assist
 | **Invoice** | "Invoice" folder |
 | **Service Notifications** | Inbox (weekly cleanup to archive) |
 | **Marketing** | Archive |
-| **Spam** | Delete |
+| **Spam** | "Spam" folder |
 | **Personal** | Inbox |
 
 ## Features
 
 ### Notifications
-- Separate templates for regular, important, suspicious emails, and invoices
+- Notifications for all categories (except spam — digest only)
 - Thread grouping — one notification instead of many
 - Deduplication across mailboxes
 - Daily digest with statistics
@@ -52,7 +53,7 @@ An AI skill with comprehensive email processing rules. Designed for an AI assist
 ### Security
 - Masking of sensitive data (passwords, tokens, card numbers)
 - Suspicious attachment warnings
-- Unknown sender warnings for invoices
+- Unknown sender warnings for invoices and financial emails
 - Unsubscribe protection (filters for transactional emails)
 
 ### Telegram Interaction
